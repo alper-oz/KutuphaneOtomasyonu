@@ -36,7 +36,7 @@ namespace KutuphaneOtomasyonu
             {
                 if (userName.ToLower()==person.getusername() && passWord==person.getpassword() && person.authority=="admin")
                 {
-                    Admin admin = new Admin();
+                    Admin admin = new Admin(persons);
                     admin.Show();
                     this.Hide();
                     check = true;
