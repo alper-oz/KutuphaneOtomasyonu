@@ -61,9 +61,16 @@ namespace KutuphaneOtomasyonu
 
         private void btn_Update_Click(object sender, EventArgs e)
         {
-            fillText();
+            string id =txt_ID.Text;
+            string firstName =txt_FirstName.Text;
+            string lastName =txt_LastName.Text;
+            string username =txt_Username.Text;
+            string date = maskedTextBox1.Text;
+            string password =txt_Password.Text;
+            string authority =txt_Authority.Text;
+            //fillText();
             dataGridView1.Rows.Remove(dataGridView1.CurrentRow);
-            dataGridView1.Rows.Add(txt_ID.Text,txt_FirstName.Text,txt_LastName.Text,maskedTextBox1.Text,txt_Username.Text,txt_Password.Text,txt_Authority.Text);
+            dataGridView1.Rows.Add(id, firstName, lastName, username, password, authority, date);
         }
 
         private void btn_Clear_Click(object sender, EventArgs e)
