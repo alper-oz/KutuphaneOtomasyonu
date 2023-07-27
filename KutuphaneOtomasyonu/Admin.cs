@@ -15,10 +15,12 @@ namespace KutuphaneOtomasyonu
     public partial class Admin : Form
     {
         List<Person> persons;
-        public Admin(List<Person> persons)
+        List<Book> books;
+        public Admin(List<Person> persons, List<Book> books)
         {
             InitializeComponent();
             this.persons = persons;
+            this.books = books;
         }
 
         private void groupBox_Member_Enter(object sender, EventArgs e)
@@ -32,11 +34,16 @@ namespace KutuphaneOtomasyonu
             {
                 dataGridView1.Rows.Add(person.getId(), person.getFirstName(), person.getLastName(), person.getAddedTime(), person.getusername(), person.getpassword(), person.getauthority());
             }
+
+            foreach (Book book in this.books)
+            {
+                dataGridView2.Rows.Add(book.getBOOKID(), book.getBookName(), book.getBookWriter(), book.getLanguage(), book.getPublisher(), book.getType(), book.getPiece(), book.getPageNumber(), book.getPublishYear());
+            }
         }
 
         private void btn_Add_Click(object sender, EventArgs e)
         {
-            dataGridView1.Rows.Add(Convert.ToInt32(txt_ID.Text), txt_FirstName.Text, txt_LastName.Text, maskedTextBox1.Text, txt_Username.Text, txt_Password.Text, txt_Authority.Text);
+            dataGridView1.Rows.Add(Convert.ToInt32(txt_ID.Text), txt_FirstName.Text, txt_LastName.Text, maskedTextBox1.Text, txt_Username.Text, txt_Password.Text, txt_Authority.Text, txt_piece.Text);
         }
 
         private void btn_Delete_Click(object sender, EventArgs e)
@@ -82,6 +89,39 @@ namespace KutuphaneOtomasyonu
                     groupBox_Member.Controls[i].Text = string.Empty;
                 }
             }
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_bookadd_Click(object sender, EventArgs e)
+        {
+            dataGridView2.Rows.Add(txt_bookid.Text, txt_bookname.Text, txt_bookwriter.Text, txt_language.Text, txt_type.Text, txt_publisher.Text,txt_pagenumber.Text, maskedTextBox2.Text);
+        }
+
+        private void btn_bookdelete_Click(object sender, EventArgs e)
+        {
+            dataGridView2.Rows.Remove(dataGridView2.CurrentRow);
+        }
+
+        private void btn_bookupdate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txt_bookid.Text = dataGridView2.CurrentRow.Cells[0].Value.ToString();
+            txt_bookname.Text = dataGridView2.CurrentRow.Cells[1].Value.ToString();
+            txt_bookwriter.Text = dataGridView2.CurrentRow.Cells[2].Value.ToString();
+            txt_language.Text = dataGridView2.CurrentRow.Cells[3].Value.ToString();
+            txt_publisher.Text = dataGridView2.CurrentRow.Cells[4].Value.ToString() ;
+            txt_type.Text = dataGridView2.CurrentRow.Cells[5].Value.ToString();
+            txt_piece.Text = dataGridView2.CurrentRow.Cells[6].Value.ToString();
+            txt_pagenumber.Text = dataGridView2.CurrentRow.Cells[7].Value.ToString();
+            maskedTextBox2.Text = dataGridView2.CurrentRow.Cells[8].Value.ToString();
         }
     }
 }

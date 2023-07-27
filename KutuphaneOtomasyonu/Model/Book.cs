@@ -22,7 +22,7 @@ namespace KutuphaneOtomasyonu.Model
         {
 
         }
-        public Book(int book_id, string book_name, string book_writer, string language, string publisher, string type, int page_number, int publish_year)
+        public Book(int book_id, string book_name, string book_writer, string language, string publisher, string type, int piece, int page_number, int publish_year)
         {
             BOOK_ID = book_id;
             Book_Name = book_name;
@@ -30,38 +30,43 @@ namespace KutuphaneOtomasyonu.Model
             Language = language;
             Publisher = publisher;
             Type = type;
+            Piece = piece;
             Page_Number = page_number;
             Publish_Year = publish_year;
         }
-        public int getBOOK_ID(int book_id)
+        public int getBOOKID()
         {
             return BOOK_ID;
         }
-        public string getBook_Name(string book_name)
+        public string getBookName()
         {
             return Book_Name;
         }
-        public string getBook_Writer(string book_writer)
+        public string getBookWriter()
         { 
             return Book_Writer; 
         }
-        public string getLanguage(string language)
+        public string getLanguage()
         {
             return Language;
         }
-        public string getPublisher(string publisher)
+        public string getPublisher()
         {
             return Publisher;
         }
-        public string getType(string type)
+        public string getType()
         {
             return Type;
         }
-        public int getPage_Number(int page_number)
+        public int getPiece()
+        {
+            return Piece;
+        }
+        public int getPageNumber()
         {
             return Page_Number;
         }
-        public int getPublish_Year(int publish_year)
+        public int getPublishYear()
         {
             return Publish_Year;
         }
