@@ -64,6 +64,7 @@
     <Compile Include="Member.Designer.cs">
       <DependentUpon>Member.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Book.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
